@@ -1,0 +1,16 @@
+.image-listing {
+     padding: 20px;
+     width: 250px;
+}
+
+.image-listing img {
+    max-width: 200px;
+}
+
+.image-listing.lg-bg {
+    background-color: lightgray;
+}
+
+.image-listing.white-bg {
+    background-color: white;
+}

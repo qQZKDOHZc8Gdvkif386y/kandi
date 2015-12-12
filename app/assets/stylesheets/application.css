@@ -1,0 +1,89 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+@import 'bootstrap/glyphicons';
+
+.navbar-inverse {
+    background-color: #6600cc;
+    border-color: #6600cc;
+}
+
+.navbar-inverse .navbar-nav>li>a {
+    color: white;
+}
+
+.navbar-inverse .navbar-brand {
+    color: white;
+}
+
+.ratings {
+    color: #6600cc;
+}
+
+.glyphicon-chevron-left:before, .glyphicon-chevron-right:before {
+    color: #6600cc;
+}
+
+.carousel-indicators .active {
+    background-color: #6600cc;
+}
+
+.thumbnail .caption h4 a{
+    color: black;
+}
+
+.thumbnail .caption-full h4 p {
+    color: black;
+}
+
+.spinner .glyphicon-fire {
+    font-size: 200%;
+    color: rgba(0,0,0,.3);
+}
+
+.spinner .glyphicon-fire.on {
+    font-size: 200%;
+    color: #6600cc;
+}
+
+.header-logo {
+    display:          block;
+    margin:           auto;
+    width:            100px;
+    background-color: white;
+}
+
+.main-container {
+}
+
+.purple-outline {
+    border-left: 3px double #6600cc;
+    border-right: 3px double #6600cc;
+}
+
+@media screen and (min-width: 768px) {
+    .carousel-caption.title {
+        top: 30px;
+    }
+
+    .carousel-caption.title h3 {
+        font-size: 300%;
+    }
+
+    .carousel-caption.message {
+        top: 105px;
+    }
+}

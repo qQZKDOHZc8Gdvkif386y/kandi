@@ -1,0 +1,118 @@
+<!-- Page Content -->
+<div class="container main-container">
+
+  <div class="row">
+
+    <div class="col-md-3 purple-outline">
+      <p class="lead">BedKandi180</p>
+      <div class="list-group">
+        <a href="/" class="list-group-item">BedKandi180 Home</a>
+        <a href="/warehouse" class="list-group-item">Warehouse</a>
+        <p class="list-group-item"><span class="glyphicon glyphicon-shopping-cart"></span> <%= @cart.shopping_cart_items.length %> items | <%= number_to_currency(@cart.shopping_cart_items.reduce(0) {|acc,i| acc+i.price})%> | <a href='/cart'>Cart</a>  </p>
+      </div>
+    </div>
+    <div class="col-md-9">
+
+      <div class="thumbnail">
+        <div class="row carousel-holder">
+          <div class="col-md-12">
+            <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+              <ol class="carousel-indicators">
+                <% @product.images.length.times do |i| %>
+                    <li data-target="#carousel-example-generic" data-slide-to="<%= i %>" class="<%= i == 0 ? 'active' : '' %> "></li>
+                <% end %>
+              </ol>
+              <div class="carousel-inner">
+                <% @product.images.each.with_index do |image, index| %>
+                    <div class="item <%= index == 0 ? 'active' : '' %>">
+                      <%= image_tag image.image.url, class: 'slide-img' %>
+                    </div>
+                <% end %>
+              </div>
+              <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+              </a>
+              <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right"></span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="caption-full">
+          <h4 class="pull-right"><%= number_to_currency(@product.price)%></h4>
+          <h4><p><%= @product.name %></p>
+          </h4>
+          <p><%= @product.description %></p>
+          <a type="button" class="btn btn-primary" href="/cart/<%= @cart.id %>/add_item/<%= @product.id %>">Add to Cart</a>
+        </div>
+        <div class="ratings">
+          <p class="pull-right">3 reviews</p>
+          <p>
+            <span class="glyphicon glyphicon-star"></span>
+            <span class="glyphicon glyphicon-star"></span>
+            <span class="glyphicon glyphicon-star"></span>
+            <span class="glyphicon glyphicon-star"></span>
+            <span class="glyphicon glyphicon-star-empty"></span>
+            4.0 stars
+          </p>
+        </div>
+      </div>
+
+      <div class="well">
+
+        <div class="text-right">
+          <a class="btn btn-success">Leave a Review</a>
+        </div>
+
+        <hr>
+
+        <div class="row">
+          <div class="col-md-12">
+            <span class="glyphicon glyphicon-star"></span>
+            <span class="glyphicon glyphicon-star"></span>
+            <span class="glyphicon glyphicon-star"></span>
+            <span class="glyphicon glyphicon-star"></span>
+            <span class="glyphicon glyphicon-star-empty"></span>
+            Anonymous
+            <span class="pull-right">10 days ago</span>
+            <p>This product was great in terms of quality. I would definitely buy another!</p>
+          </div>
+        </div>
+
+        <hr>
+
+        <div class="row">
+          <div class="col-md-12">
+            <span class="glyphicon glyphicon-star"></span>
+            <span class="glyphicon glyphicon-star"></span>
+            <span class="glyphicon glyphicon-star"></span>
+            <span class="glyphicon glyphicon-star"></span>
+            <span class="glyphicon glyphicon-star-empty"></span>
+            Anonymous
+            <span class="pull-right">12 days ago</span>
+            <p>I've alredy ordered another one!</p>
+          </div>
+        </div>
+
+        <hr>
+
+        <div class="row">
+          <div class="col-md-12">
+            <span class="glyphicon glyphicon-star"></span>
+            <span class="glyphicon glyphicon-star"></span>
+            <span class="glyphicon glyphicon-star"></span>
+            <span class="glyphicon glyphicon-star"></span>
+            <span class="glyphicon glyphicon-star-empty"></span>
+            Anonymous
+            <span class="pull-right">15 days ago</span>
+            <p>I've seen some better than this, but not at this price. I definitely recommend this item.</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+</div>
+<!-- /.container -->

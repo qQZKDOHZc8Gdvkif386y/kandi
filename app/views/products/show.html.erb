@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @product.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @product.description %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @product.price %>
+</p>
+
+<p> Categories: </p>
+<ul>
+<% @product.categories.each do |category| %>
+    <li> <%= category.name %> </li>
+<% end %>
+</ul>
+
+<p> Components: </p>
+<ul>
+  <% @product.components.each do |component| %>
+      <li> <%= component.name %> </li>
+  <% end %>
+</ul>
+
+<p> Manage Images: <%= link_to 'Click here', "/products/#{@product.id}/images" %></p>
+
+
+
+<%= link_to 'Edit', edit_product_path(@product) %> |
+<%= link_to 'Back', products_path %>

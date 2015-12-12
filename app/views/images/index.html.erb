@@ -1,0 +1,17 @@
+<h2>Images for <%= @product.name %></h2>
+
+<p id="notice"><%= notice %></p>
+
+<%= link_to "Back to #{@product.name}", "/products/#{@product.id}" %> |
+
+<%= link_to 'New Image', "/products/#{@product.id}/images/new" %>
+
+<ul>
+  <% @images.each.with_index do |image, index| %>
+      <li class="image-listing <%= index % 2 == 0 ? 'lg-bg' : 'white-bg' %>">
+        <%= image_tag image.image.url %>
+        <hr />
+        <%= link_to 'Remove', "/products/#{@product.id}/images/#{image.id}", method: 'delete' %>
+      </li>
+  <% end %>
+</ul>

@@ -1,0 +1,55 @@
+<%= form_for(@product, multipart: true) do |f| %>
+    <% if @product.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@product.errors.count, "error") %> prohibited this product from being saved:</h2>
+
+          <ul>
+            <% @product.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label :name %><br>
+      <%= f.text_field :name %>
+    </div>
+    <div class="field">
+      <%= f.label :description %><br>
+      <%= f.text_field :description %>
+    </div>
+    <div class="field">
+      <%= f.label :price %><br>
+      <%= f.text_field :price %>
+    </div>
+    <div class="field">
+      <%= f.label :spicy_level %><br>
+      <%= f.text_field :spicy_level %>
+    </div>
+
+    <hr />
+    <div class="field">
+      <%= f.label :list_image %><br>
+      <h5>Current list image:</h5>
+      <% if @product.list_image_url %>
+          <%= image_tag @product.list_image_url, style: 'width:50px;' %>
+      <% end %>
+      <%= f.file_field :list_image %>
+    </div>
+    <hr />
+
+    <p> Category: </p>
+
+    <%= select_tag('product[categories]', options_for_select(Category.all.map { |cat|  [cat.name, cat.id] }), multiple: true) %>
+
+    <p> Components (if package): </p>
+
+    <%= select_tag('product[components]', options_for_select(Product.all.map { |p|  [p.name, p.id] }), multiple: true) %>
+
+
+
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+<% end %>
